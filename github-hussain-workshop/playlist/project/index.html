@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Playlist</title>
+<link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="player-container">
+      <div class="header">
+        <h1>My Playlist</h1>
+        <p>Tap play to start listening</p>
+      </div>
+
+      <ul class="playlist" id="playlist">
+        <li class="track" data-track-id="0">
+          <div class="track-number">1</div>
+          <div class="track-info">
+            <div class="track-title">Summer Vibes</div>
+            <div class="track-artist">The Chill Collective</div>
+          </div>
+          <div class="now-playing-indicator">
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+          </div>
+          <div class="track-controls">
+            <button class="control-btn play" data-action="play">Play</button>
+          </div>
+          <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+        </li>
+
+        <li class="track" data-track-id="1">
+          <div class="track-number">2</div>
+          <div class="track-info">
+            <div class="track-title">Midnight Dreams</div>
+            <div class="track-artist">Echo Wave</div>
+          </div>
+          <div class="now-playing-indicator">
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+          </div>
+          <div class="track-controls">
+            // TODO: Add a button for play/pause
+            // Ensure it updates text and classes when toggled            
+          </div>
+          <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+        </li>
+
+        <li class="track" data-track-id="2">
+          <div class="track-number">3</div>
+          <div class="track-info">
+            <div class="track-title">Urban Rhythm</div>
+            <div class="track-artist">Street Sounds</div>
+          </div>
+          <div class="now-playing-indicator">
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+          </div>
+          <div class="track-controls">
+            <button class="control-btn play" data-action="play">Play</button>
+          </div>
+          <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+        </li>
+
+        <li class="track" data-track-id="3">
+          <div class="track-number">4</div>
+          <div class="track-info">
+            <div class="track-title">Ocean Breeze</div>
+            <div class="track-artist">Coastal Harmony</div>
+          </div>
+          <div class="now-playing-indicator">
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+          </div>
+          <div class="track-controls">
+            <button class="control-btn play" data-action="play">Play</button>
+          </div>
+          <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
+        </li>
+
+        <li class="track" data-track-id="4">
+          <div class="track-number">5</div>
+          <div class="track-info">
+            <div class="track-title">Digital Sunset</div>
+            <div class="track-artist">Neon Sky</div>
+          </div>
+          <div class="now-playing-indicator">
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+            <div class="sound-bar"></div>
+          </div>
+          <div class="track-controls">
+            <button class="control-btn play" data-action="play">Play</button>
+          </div>
+          <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"></audio>
+        </li>
+      </ul>
+    </div>
+<script src="./script.js"></script>
+  </body>
+</html>

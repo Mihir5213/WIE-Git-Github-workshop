@@ -1,0 +1,343 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow: hidden;
+}
+
+body.light-mode {
+  background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+  color: #2c3e50;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: #ecf0f1;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  padding: 3rem;
+  position: relative;
+}
+
+.icon-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+}
+
+body.dark-mode .sun-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5) rotate(180deg);
+  pointer-events: none;
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5) rotate(-180deg);
+}
+
+body.dark-mode .moon-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) rotate(0deg);
+}
+
+.sun-core {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #fff44f 0%, #ffb347 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  animation: sunPulse 3s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 60px rgba(255, 215, 0, 1);
+  }
+}
+
+.sun-ray {
+  position: absolute;
+  width: 8px;
+  height: 40px;
+  background: linear-gradient(to bottom, #ffb347, transparent);
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+  transform-origin: center -10px;
+  animation: sunRayRotate 8s linear infinite;
+}
+
+.ray1 { transform: translate(-50%, -50%) rotate(0deg); animation-delay: 0s; }
+.ray2 { transform: translate(-50%, -50%) rotate(45deg); animation-delay: -1s; }
+.ray3 { transform: translate(-50%, -50%) rotate(90deg); animation-delay: -2s; }
+.ray4 { transform: translate(-50%, -50%) rotate(135deg); animation-delay: -3s; }
+.ray5 { transform: translate(-50%, -50%) rotate(180deg); animation-delay: -4s; }
+.ray6 { transform: translate(-50%, -50%) rotate(225deg); animation-delay: -5s; }
+.ray7 { transform: translate(-50%, -50%) rotate(270deg); animation-delay: -6s; }
+.ray8 { transform: translate(-50%, -50%) rotate(315deg); animation-delay: -7s; }
+
+@keyframes sunRayRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(var(--rotation)) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 180deg)) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) + 360deg)) scale(1);
+    opacity: 1;
+  }
+}
+
+.moon-core {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 30% 30%, #f4f6f9 0%, #c9d4e3 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 50px rgba(200, 220, 255, 0.6),
+              inset -10px -10px 30px rgba(100, 120, 150, 0.3);
+  animation: moonFloat 4s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-15px);
+  }
+}
+
+.crater {
+  position: absolute;
+  background: radial-gradient(circle, rgba(150, 170, 200, 0.4), transparent);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.crater1 {
+  width: 20px;
+  height: 20px;
+  top: 30%;
+  left: 25%;
+}
+
+.crater2 {
+  width: 15px;
+  height: 15px;
+  top: 55%;
+  left: 45%;
+}
+
+.crater3 {
+  width: 12px;
+  height: 12px;
+  top: 40%;
+  right: 30%;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+/* --- Easter Egg Zone --- */
+/*
+  🎨 Bonus Challenge: Make your theme toggler extra vibrant!
+
+  HINT: When the user switches themes, set the page background to a red–blue gradient using CSS.
+  BONUS: Add another button/toggle so users can switch specifically to this gradient mode any time!
+*/
+
+.star1 {
+  top: 10%;
+  right: 15%;
+  animation-delay: 0s;
+}
+
+.star2 {
+  top: 20%;
+  right: 60%;
+  animation-delay: 0.5s;
+}
+
+.star3 {
+  bottom: 15%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.star4 {
+  bottom: 25%;
+  left: 10%;
+  animation-delay: 1.5s;
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+}
+
+.theme-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 2rem 0;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+  letter-spacing: 1px;
+}
+
+body.light-mode .theme-text {
+  color: #2c3e50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .theme-text {
+  color: #ecf0f1;
+  text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.toggle-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+body.light-mode .toggle-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+body.light-mode .toggle-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.4);
+}
+
+body.dark-mode .toggle-button {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+body.dark-mode .toggle-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(240, 147, 251, 0.4);
+}
+
+.toggle-button:active {
+  transform: translateY(-1px);
+}
+
+.button-icon {
+  font-size: 1.5rem;
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+.toggle-button:hover .button-icon {
+  transform: rotate(20deg) scale(1.1);
+}
+
+.button-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .icon-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sun-core,
+  .moon-core {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sun-ray {
+    width: 6px;
+    height: 30px;
+  }
+
+  .theme-text {
+    font-size: 1.8rem;
+  }
+
+  .toggle-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

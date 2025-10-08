@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Emoji Bar</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>How was your experience?</h1>
+      <p class="subtitle">We'd love to hear your feedback!</p>
+
+      <div class="emoji-container">
+        <button class="emoji-btn" data-emoji="happy" aria-label="Happy">😃</button>
+        <button class="emoji-btn" data-emoji="neutral" aria-label="Neutral">😐</button>
+        <button class="emoji-btn" data-emoji="sad" aria-label="Sad">😞</button>
+      </div>
+
+      <div class="feedback-message" id="feedbackMessage">
+        <p class="message-text" id="messageText"></p>
+        <button class="reset-btn" id="resetBtn">Reset</button>
+      </div>
+    </div>
+
+<script src="./main.js"></script>
+  </body>
+</html>
