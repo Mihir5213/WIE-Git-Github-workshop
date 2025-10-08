@@ -1,9 +1,0 @@
-// Code for Condition 1
-// Add this inside the updateProgress function.
-const percent = (audio.currentTime / audio.duration) * 100;
-track.style.setProperty('--playback-progress', `${percent}%`);
-
-
-// Code for Condition 2
-// Add this inside the pauseTrack function.
-track.style.setProperty('--playback-progress', '0%');

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="pet-container">
+        <h1>My Virtual Pet</h1>
+        <div id="pet-display">
+            <img src="images/neutral.png" id="pet-image" alt="A cute virtual pet">
+        </div>
+        <div id="stats-container">
+            <div class="stat">
+                <label>❤️ Hunger</label>
+                <div class="progress-bar"><div class="progress"></div></div>
+                <span>100%</span>
+            </div>
+            <div class="stat">
+                <label>😊 Happiness</label>
+                <div class="progress-bar"><div class="progress"></div></div>
+                <span>100%</span>
+            </div>
+            <div class="stat">
+                <label>🧼 Cleanliness</label>
+                <div class="progress-bar"><div class="progress"></div></div>
+                <span>100%</span>
+            </div>
+        </div>
+        <div id="actions-container">
+            <button id="feed-btn">Feed 🍔</button>
+            <button id="play-btn">Play 🎾</button>
+            <button id="clean-btn">Clean ✨</button>
+        </div>
+        <div id="message-container">
+            <p id="message-text">Your pet is feeling content.</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
